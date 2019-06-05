@@ -1,0 +1,175 @@
+html,
+body {
+    width: 100%;
+    min-width: 340px;
+    height: 100%;
+    font-family: sans-serif;
+    font-size: 10px;
+    background-color: #FFFFFF;    
+}
+
+svg {
+    height: 100%;
+}
+
+// animation: example 5s linear 2s infinite alternate;
+
+// Clouds
+$speed: 1.5;
+
+$layer-1-speed: $speed * 45s; 
+$layer-2-speed: $speed * 46s; 
+$layer-3-speed: $speed * 47s;
+
+$layer-1-delay: 2ms;
+$layer-2-delay: 3ms;
+$layer-3-delay: 4ms;
+
+.cloud-1,
+.cloud-2,
+.cloud-3,
+.cloud-4,
+.cloud-5,
+.cloud-6,
+.cloud-7 {
+        transform: translateX(-100%);
+        animation: translateLeftRight cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+}
+
+.cloud-1 {
+    animation-duration: $layer-1-speed;
+    animation-delay: $layer-1-delay;
+}
+
+.cloud-2 {
+    animation-duration: $layer-2-speed;
+    animation-delay: $layer-2-delay;
+}
+
+.cloud-3 {
+    animation-duration: $layer-3-speed;
+    animation-delay: $layer-3-delay;
+}
+
+.cloud-4 {
+    animation-duration: $layer-2-speed;
+    animation-delay: $layer-2-delay;
+}
+
+.cloud-5 {
+    animation-duration: $layer-1-speed;
+    animation-delay: $layer-1-delay;
+}
+
+.cloud-6 {
+    animation-duration: $layer-3-speed;
+    animation-delay: $layer-3-delay;
+}
+
+.cloud-7 {
+    animation-duration: $layer-2-speed;
+    animation-delay: $layer-2-delay;
+}
+
+@keyframes translateLeftRight {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+// Turbines
+.turbine-1,
+.turbine-2,
+.turbine-3 {
+    // animation: rotate360 5s linear 1s infinite;
+    transform-origin: 50%;
+}
+
+@keyframes rotate360 {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);        
+    }
+}
+
+// Fountain
+$base-speed: 2.5s; // n/3
+
+$lower-speed: $base-speed;
+$mid-speed: $base-speed / 3 * 2;
+$upper-speed: $base-speed / 3;
+
+.fountain-lower-l-1,
+.fountain-lower-r-2,
+.fountain-lower-l-3,
+.fountain-lower-r-4 {
+    opacity: 0%;
+    animation: lowerFade $base-speed linear infinite;
+}
+
+.fountain-lower-r-1,
+.fountain-lower-l-2,
+.fountain-lower-r-3,
+.fountain-lower-l-4 {
+    opacity: 0%;
+    animation: lowerFadeOff $base-speed linear infinite;
+}
+
+.fountain-mid {
+    opacity: 0%;
+    animation: midFade $base-speed linear infinite;
+}
+
+.fountain-upper-l {
+    opacity: 0%;
+    animation: upperFade $base-speed linear infinite;
+}
+
+.fountain-upper-r {
+    opacity: 0%;
+    animation: upperFadeOff $base-speed linear infinite;
+}
+
+@keyframes lowerFade {
+    0% { opacity: 0 }
+    16% { opacity: 1 }
+    83% { opacity: 1 }
+    100% { opacity: 0 }
+}
+
+@keyframes lowerFadeOff {
+    0% { opacity: 0 }
+    20% { opacity: 1 }
+    85% { opacity: 1 }
+    100% { opacity: 0 }
+}
+
+@keyframes midFade {
+    0% { opacity: 0 }
+    16% { opacity: 0 }
+    33% { opacity: 1 }
+    66% { opacity: 0.8 }
+    83% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+@keyframes upperFade {
+    0% { opacity: 0 }
+    33% { opacity: 0 }
+    50% { opacity: 0.6 }
+    66% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+@keyframes upperFadeOff {
+    0% { opacity: 0 }
+    36% { opacity: 0 }
+    50% { opacity: 0.8 }
+    68% { opacity: 0 }
+    100% { opacity: 0 }
+}
